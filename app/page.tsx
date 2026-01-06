@@ -190,7 +190,48 @@ export default function Home() {
                       緊急道路救援
                     </Button>
                   </a>
+                  <div className="md:hidden w-full">
+                    <Dialog>
+                      <DialogTrigger asChild>
+                        <Button size="lg" className="w-full bg-[#06C755] hover:bg-[#05a546] text-white text-lg font-bold shadow-[0_0_20px_rgba(6,199,85,0.4)] border-0">
+                          <Phone className="mr-2 h-5 w-5 animate-pulse" />
+                          LINE 線上諮詢
+                        </Button>
+                      </DialogTrigger>
+                      {/* 彈窗內容：直接複製電腦版的內容，確保功能一致 */}
+                      <DialogContent className="sm:max-w-[350px] bg-slate-900 border-slate-700 text-white text-center">
+                        <DialogHeader>
+                          <DialogTitle className="text-xl text-[#06C755] flex items-center justify-center gap-2">
+                            <LineIcon className="h-6 w-6" />
+                            加入官方 LINE 好友
+                          </DialogTitle>
+                          <DialogDescription className="text-slate-400">
+                            拍照回傳車況，線上估價最快速！
+                          </DialogDescription>
+                        </DialogHeader>
+                        
+                        {/* QR Code 區域 */}
+                        <div className="flex flex-col items-center justify-center py-6 gap-4">
+                          <div className="w-48 h-48 bg-white p-2 rounded-xl flex items-center justify-center relative overflow-hidden">
+                            <img 
+                              src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=https://line.me/ti/p/@ah-hong-motor" 
+                              alt="LINE QR Code" 
+                              className="w-full h-full"
+                            />
+                          </div>
+                          <p className="text-sm text-slate-300">ID: @ah-hong-motor</p>
+                        </div>
 
+                        <div className="flex justify-center">
+                          <Button asChild className="w-full bg-[#06C755] hover:bg-[#05a546] text-white">
+                            <a href="https://line.me/ti/p/hash3171717" target="_blank" rel="noopener noreferrer">
+                              點擊直接加入
+                            </a>
+                          </Button>
+                        </div>
+                      </DialogContent>
+                    </Dialog>
+                  </div>
                   {/* 🅱️ 電腦版專用：高級預約彈窗 (只在 md 以上顯示) */}
                   <div className="hidden md:block">
                     <Dialog>
